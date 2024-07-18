@@ -1,0 +1,12 @@
+LEVEL04
+
+-There is a "level04.pl" pearl script in the home directory
+- When we print it, we see that it expects to receive parameters from a http request. 
+- There is a hint in the comment that port 4747 can be used.
+- The script gets the value of parameter x from the web request, which is then passed to the function 'x' and printed.
+- The script has a command injection vulnerability, as we can directly include input in the shell command.
+- We can sent following request when the web server is running locally on port 4747:
+"curl http://localhost:4747/?=`/bin/getflag/`"
+
+- We made a http request via curl with specified URL, and passed the getflag command as the parameter.
+This way, we can directly obtain the flag.

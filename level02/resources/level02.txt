@@ -1,0 +1,30 @@
+LEVEL02
+
+- There is a "level02.pcap" file in home directory. Pcap files are data files containing the packet data of network. We want to look inside the package, and use Wireshark for that purpose.
+
+- We look inside the packets and find out that packet no. 43 contains the string "Password: ". We analyze the flow of data for this packet (follow TCP stream), and its contents as Hex Dump.
+
+- This allows us to see that the password is
+f
+t
+_
+w
+a
+n
+d
+r
+DEL
+DEL
+DEL
+N
+D
+R
+e
+l
+DEL
+L
+0
+L
+
+- After omitting the deleted characters, the password is
+"ft_waNDReL0L"

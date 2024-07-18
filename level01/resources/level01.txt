@@ -1,0 +1,18 @@
+LEVEL01
+
+- We look around through directories, starting from the root. "ls -la" shows that "dev", "etc" and other directories were modifiedi n 2024, as opposed to others. We look for "flag01" in these directories first.
+
+- We go to the "etc" directory and look for "flag01" (recursive search starting from the current directory)
+"grep -r "flag01" ."
+
+- Output displays a passwd directory for username "flag01". 
+"./passwd:flag01:42hDRfypTqqnw:3001:3001:: /home/flag/flag01:/bin/bash"
+
+- "42hDRfypTqqnw" is not the password, so we still have to crack the string. The snow crash video guy mentions that we will need John the Ripper for password cracking.
+"echo "flag01:42hDRfypTqqnw" > decode.txt
+"john --format=descrypt decode.txt"
+"john --show decode.txt"
+
+- Output is the right password to get flag01:
+"flag01:abcdefg"
+
