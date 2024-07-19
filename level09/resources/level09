@@ -1,0 +1,15 @@
+LEVEL09
+
+- Once again, there is an executable "level09" and a "token".
+- We see that printing the token will show as an encrypted string.
+- By running the executable and trying out different arguments we see that the index position gets incremented for each character in the string:
+"./level09 1111 -> 1234"
+
+- We copy the token and the executable to local machine for further inspection.
+"scp -p 4242 level09@192.168.0.66:~level09 ."
+
+- We check the executable using ghidra. In the main function, there is a "you should not reverse this" message. In the spirit of reverse psychology, we write a program that reverses the argument string, namely the token.
+(check out the reverse.c file in resources)
+
+- After compiling and running our reverse program on local machine with the "token" file as argument, we get the password to get the flag:
+"f3iji1ju5yuevaus41q1afiuq"

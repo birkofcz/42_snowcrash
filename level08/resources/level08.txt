@@ -1,0 +1,11 @@
+LEVEL08
+
+- There is a "level08" executable and a "token" file in the home directory.
+- Launching "./level08" tells us that a file should be used as an argument. But using "token" as argument is not allowed.
+- We look into the executable using ghidra and decompile its main function.
+- We find out that main uses the function strstr to check whether the string contains the substring "token". If it does, it will print "no access" message and exit.
+- Since we need to open the token file with "level08" without using the word token, we can do it by making a symbolic link, which will have another name:
+"ln -s ~/token /tmp/link"
+
+- Then we can launch the program with the link as the argument, thus obtaining the password for the getflag command:
+"./level08 /tmp/link"

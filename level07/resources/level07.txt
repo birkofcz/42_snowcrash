@@ -1,0 +1,12 @@
+LEVEL07
+
+- There is a "level07" executable in the home directory. Executing it will print "level07" string.
+- We can use ghidra to look into function calls made by the program, so we launch ghidra, open level07 in it and decompile the main function.
+
+- The decompilation log shows that getenv is called with the LOGNAME environment variable, which gets printed..
+- Running the env command will confirm that the LOGNAME is set to "level07".
+- We can set it to execute the "getflag" command instead:
+"export LOGNAME=\`getflag\`"
+
+- the "\" escape characters enable us to save the backticks as well, which will execute the getflag command upon running the executable:
+"./level07"

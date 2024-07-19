@@ -1,0 +1,11 @@
+LEVEL06
+
+- There is a "level06.php" script and a "level06" executable in the home directory.
+- We look into the php script.
+"cat level06.php"
+
+- The script does some replacements within its functions, reads first two arguments, calls function x with these arguments and prints it. It turns out that the important point is that the x funtion uses "/e" modifier, which makes the code vulnerable to a command injection.
+
+- We can use a regular expression to execute the getflag command within the x variable, which will then display the flag in an "Undefined variable" error message:
+"echo '[x ${`getflag`}]' > tmp/myflag"
+"./level06 /tmp/myflag"

