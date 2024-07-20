@@ -6,7 +6,7 @@ LEVEL04
 - The script gets the value of parameter x from the web request, which is then passed to the function 'x' and printed.
 - The script has a command injection vulnerability, as we can directly include input in the shell command.
 - We can sent following request when the web server is running locally on port 4747:
-"curl http://localhost:4747/?=`/bin/getflag/`"
+"curl http://localhost:4747/?x=\`/bin/getflag\`            "
 
 - We made a http request via curl with specified URL, and passed the getflag command as the parameter.
 This way, we can directly obtain the flag.
